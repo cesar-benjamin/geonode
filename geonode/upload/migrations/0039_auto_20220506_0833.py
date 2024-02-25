@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='uploadparallelismlimit',
             name='max_number',
-            field=models.PositiveSmallIntegerField(default=100, help_text='The maximum number of parallel uploads (0 to 32767).'),
+            field=models.PositiveSmallIntegerField(default=10, help_text='The maximum number of parallel uploads (0 to 32767).'),
         ),
         migrations.AlterField(
             model_name='uploadsizelimit',

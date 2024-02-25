@@ -22,4 +22,9 @@ class Migration(migrations.Migration):
                 to="contenttypes.contenttype",
             ),
         ),
+        migrations.AlterField(
+            model_name="hierarchicalkeyword",
+            name="slug",
+            field=models.SlugField(allow_unicode=True, max_length=100, unique=True, verbose_name="slug"),
+        ),
     ]
