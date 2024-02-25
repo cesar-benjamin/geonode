@@ -30,6 +30,7 @@ from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.views.i18n import JavaScriptCatalog
 from django.contrib.sitemaps.views import sitemap
+from django.shortcuts import redirect
 
 import geonode.proxy.urls
 from . import views
@@ -54,7 +55,9 @@ sitemaps = {"dataset": DatasetSitemap, "map": MapSitemap}
 homepage = register_url_event()(TemplateView.as_view(template_name="index.html"))
 
 urlpatterns = [
-    re_path(r"^$", homepage, name="home"),
+    # re_path(r"^$", homepage, name="home"),
+    re_path(r"^$", lambda request: redirect("/atlas/"), name="home"),
+
     re_path(r"^help/$", TemplateView.as_view(template_name="help.html"), name="help"),
     re_path(r"^developer/$", TemplateView.as_view(template_name="developer.html"), name="developer"),
     re_path(r"^about/$", TemplateView.as_view(template_name="about.html"), name="about"),
